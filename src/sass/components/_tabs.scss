@@ -1,0 +1,65 @@
+.tabs {
+    float: none;
+    list-style: none;
+    position: relative;
+    margin: 3% 0 0 0;
+    text-align: left;
+    padding: 0;
+}
+.tabs li {
+    float: left;
+    display: block;
+}
+.tabs input[type="radio"] {
+    position: absolute;
+    /*top: -9999px; */
+    left: -9999px;
+}
+.tabs label {
+    display: block;
+    padding: 0.8em 0.8em;
+    border-radius: 2px 2px 0 0;
+    font-size: 18px;
+    font-weight: normal;
+    background: #CCE2E6;
+    cursor: pointer;
+    position: relative;
+    top: 4px;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    @include media(">phone", "<tablet") {
+        padding: 0.7em;
+    }
+}
+.tabs label:hover {
+    background: #efefef;
+}
+.tabs .tab-content {
+    z-index: 2;
+    display: none;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 20px 10px;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    box-sizing: border-box;
+}
+.tabs [id^="tab"]:checked + label {
+    top: 0;
+    padding-top: 17px;
+    background: #fff;
+    color: #062f4f;
+    cursor: default;
+}
+.tabs [id^="tab"]:checked ~ [id^="tab-content"] {
+    display: block;
+}
+.tabs > li label {
+    font-family: 'Josefin Sans', sans-serif;
+}

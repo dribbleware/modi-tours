@@ -1,0 +1,117 @@
+@import "tabs";
+@import "visit";
+
+.main-content {
+    height: 100%;
+    width: 35%;
+    position: fixed;
+    left: 102%;
+    box-sizing: border-box;
+    display: inline-block;
+    background-color: #062f4f;
+    color: grey;
+    z-index: 2;
+    transition: all 300ms ease-in-out;
+    @include media("<tablet") {
+        width: 100%;
+        display: none;
+        position: relative;
+        box-sizing: border-box;
+        padding-top: 15px;
+        background: linear-gradient(to bottom, #062f4f 50%, #fff);
+        &:not(.loaded) .title {
+            display: none;
+        }
+    }
+    @include media(">tablet") {
+        overflow-y: scroll;
+    }
+    &.loaded {
+        left: 65%;
+        transition: all 300ms ease-in-out;
+        @include media("<tablet") {
+            left: 0;
+            display: block;
+        }
+        ~ .aside {
+            opacity: 0;
+        }
+    }
+    .details {
+        margin-top: 10%;
+    }
+}
+.details {
+    .title {
+        z-index: 5;
+        background-color: #062f4f;
+        padding: 2% 1%;
+        @include media(">tablet") {
+            position: fixed;
+            height: 85px;
+            top: 0;
+            width: 33.3%;
+            box-shadow: 1px 1px 5px #062f4f;
+            &.scrolling {
+                box-shadow: 1px 1px 5px #07121b;
+            }
+        }
+        @include media("<tablet") {
+            position: absolute;
+            top: 20px;
+            width: 100%;      
+        }
+    }
+    @include media("<tablet") {
+        width: 100%;
+        box-sizing: border-box;
+        display: block;
+        margin-top: 0;
+    }
+    .country {
+        &-name {
+            font-size: 30px;
+            color: darkgoldenrod;
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 700;
+        }
+        &-flag {
+            max-height: 30px;
+            float: right;
+        }
+        
+    }
+}
+
+.visits {
+    padding: 0 1%;
+    margin-top: 90px;
+    @include media("<tablet") {
+        margin-top: 15%;
+    }
+}
+
+.hide-details-btn {
+    position: fixed;
+    top: 50%;
+    z-index: 3;
+    cursor: pointer;
+    left: 102%;
+    transition: all 300ms ease-in-out;
+    @include media(">tablet") {
+        &.is-visible {
+            left: calc(65% - 12px);
+        }
+    }
+    @include media("<tablet") {
+        position: absolute;
+        margin-top: -12px;
+        transform: rotate(90deg);
+        top: inherit;
+        left: inherit;
+        display: none;
+        &.is-visible {
+            display: block;
+        }
+    }
+}
