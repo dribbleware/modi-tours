@@ -47,15 +47,6 @@ gulp.task('css', function () {
           .pipe(gulp.dest('dist'))
 });
 
-gulp.task('inject', function () {
-  return gulp.src('src/index.html')
-        .pipe(inject(gulp.src('dist/**/*.js', {read: false}), {
-          transform: filepath => `<script defer src="${filepath}"></script>`
-        }))
-        .pipe(inject(gulp.src('dist/**/*.css', {read: false})))
-        .pipe(gulp.dest('.'));
-})
-
 gulp.task('clean:dist', function() {
   return del(['dist/']);
 })
@@ -68,5 +59,5 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', function (cb) {
-  runSequence('clean:dist', ['js', 'css'], 'inject', cb);
+  runSequence('clean:dist', ['js', 'css'], cb);
 })
