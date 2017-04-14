@@ -8,7 +8,6 @@ var browserify = require('browserify'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
     sourcemaps = require('gulp-sourcemaps'),
-    gutil = require('gulp-util'),
     argv = require('yargs').argv,
     gulpif = require('gulp-if'),
     inject = require('gulp-inject'),
@@ -31,7 +30,6 @@ gulp.task('js', function () {
     .pipe(buffer())
     .pipe(gulpif(!isProduction, sourcemaps.init({loadMaps: true})))
     .pipe(gulpif(!isProduction, sourcemaps.write('./')))
-    // .on('error', gutil.log)
     .pipe(gulpif(isProduction, uglify()))
     .pipe(gulpif(isProduction, rename({suffix: '.min'})))
     .pipe(gulp.dest('./dist/'));
