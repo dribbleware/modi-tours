@@ -1,6 +1,6 @@
 {
   "name": "modi-trips",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Indian PM Narendra Modi's international tours",
   "main": "index.js",
   "scripts": {
