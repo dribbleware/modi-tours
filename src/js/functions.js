@@ -91,7 +91,7 @@ var functions = function() {
 					cityStr += '</div></div>' + dateStr + spinner ;
 				}
 				if(prop == 'tl') {
-					tweets += i + '">';
+					tweets += i + '" data-tl="' + item[prop] + '">';
 					country.timelines.push(item[prop]);
 				}
 			}
@@ -107,24 +107,35 @@ var functions = function() {
 		$('.main-content').addClass('loaded');
 		$('.hide-details-btn').addClass('is-visible');
 
-		setTimelines();
+		addRadioButtonEventListener();
+		setTimeline($('.visits input[type="radio"]').first().siblings('.visit').find('.visit-tweets'));
 	};
-	var setTimelines = function () {
-		var targets = $('.visits .tabs .visit-tweets');
-		$.each(targets, function(i, target) {
-			var options = {
-				chrome: "noheader noborders transparent nofooter noscrollbar",
-				linkColor: '#062f4f'
+	var addRadioButtonEventListener = function() {
+		$('.visits input[type="radio"]').on('change', function (event) {
+			var target = $(event.target).siblings('.visit');
+			var element = target.find('.visit-tweets');
+			var loader = target.find('.visit-spinner');
+
+			if (element.has('iframe').length === 0) {
+				setTimeline(element);
 			}
-			twttr.ready( function () {
-				twttr.widgets.createTimeline(
-					{ sourceType: "collection", id: country.timelines[i] },
-					document.getElementById("visit-tweets-" + i), 
-					options
-				);
-			});
 		});
-	};
+	}
+	var setTimeline = function (el) {
+		var tl = el.data('tl');
+
+		var options = {
+			chrome: "noheader noborders transparent nofooter noscrollbar",
+			linkColor: '#062f4f'
+		}
+		twttr.ready( function () {
+			twttr.widgets.createTimeline(
+				{ sourceType: "collection", id: tl },
+				document.getElementById(el.prop('id')), 
+				options
+			);
+		});
+	}
 	var mapFirstLoad = function () {
 		for (var country in visits) {
 			if(visits.hasOwnProperty(country)) {
