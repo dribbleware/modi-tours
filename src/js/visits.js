@@ -397,6 +397,13 @@ var visits = {
         "type": ["Funeral of King Bhumibol Adulyadej"],
         "city": ["Bangkok"],
         "tl": "823981269864300544"
+    }],
+    "ES": [{
+        "from": "30/05/2017",
+        "to": "31/05/2017",
+        "type": ["sv"],
+        "city": ["Madrid"],
+        "tl": "870317945876090881"
     }]
 }
 
