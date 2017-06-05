@@ -9,7 +9,6 @@ var functions = function() {
 
 	var initiateSelection = function (hash) {
 		country.id = hash.substring(1);
-		country.timelines = [];
 
 		if ($('#' + country.id).hasClass('visited')) {
 			$('.main-content').removeClass('loaded');
@@ -46,7 +45,6 @@ var functions = function() {
 		$('.country-name').html(country.name);
 		$('.country-flag').attr('src', 'http://www.geonames.org/flags/x/' + country.id.toLowerCase() + '.gif');
 		
-		
 		var ul = '<ul class="tabs">',
 			li = '';
 
@@ -62,7 +60,7 @@ var functions = function() {
 			var	radio = '<input type="radio" name="tabs" id="tab' + i + '" ' + checked + '/>',
 				label = '<label for="tab' + i + '">' + monthYear + '</label>',
 				typeStr = '<div class="visit-types"><div class="visit-icon purpose"></div>',
-				cityStr = '',
+				cityStr = '<div class="visit-cities"><div class="visit-icon location"></div>',
 				tweets = '<div class="visit-tweets" id="visit-tweets-',
 				spinner = '<div class="spinner visit-spinner"></div>',
 				dateStr = '<div class="visit-dates"><div class="visit-icon calendar"></div>';
@@ -83,7 +81,7 @@ var functions = function() {
 				if (prop == 'to') dateStr += item[prop] + '</span></div>';
 
 				if (prop == 'city') {
-					cityStr = '<div class="visit-cities"><div class="visit-icon location"></div><div>';
+					cityStr += '<div>';
 					var cities = item[prop];
 					for (var j = 0 ; j < cities.length; j++) {
 						cityStr += '<span class="visit-city">' + cities[j] + '</span>';
@@ -92,7 +90,6 @@ var functions = function() {
 				}
 				if(prop == 'tl') {
 					tweets += i + '" data-tl="' + item[prop] + '">';
-					country.timelines.push(item[prop]);
 				}
 			}
 			var tabContent = '<div class="tab-content visit" id="tab-content' + i + '">';
@@ -124,15 +121,11 @@ var functions = function() {
 	var setTimeline = function (el) {
 		var tl = el.data('tl');
 
-		var options = {
-			chrome: "noheader noborders transparent nofooter noscrollbar",
-			linkColor: '#062f4f'
-		}
 		twttr.ready( function () {
 			twttr.widgets.createTimeline(
 				{ sourceType: "collection", id: tl },
 				document.getElementById(el.prop('id')), 
-				options
+				props.twttrOptions
 			);
 		});
 	}
@@ -227,7 +220,7 @@ var functions = function() {
 
 twttr.ready( function () {
 	twttr.events.bind('rendered', function (event) {
-		$('.visit-spinner').addClass('visit-spinner--hidden');
+		$(event.target).parent().siblings('.visit-spinner').addClass('visit-spinner--hidden');
 	});
 });
 
