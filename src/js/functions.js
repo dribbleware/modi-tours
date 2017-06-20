@@ -43,7 +43,7 @@ var functions = function() {
 	};
 	var displayDetails = function () {
 		$('.country-name').html(country.name);
-		$('.country-flag').attr('src', 'http://www.geonames.org/flags/x/' + country.id.toLowerCase() + '.gif');
+		$('.country-flag').attr('src', props.flagUrl + country.id.toLowerCase() + '.gif');
 		
 		var ul = '<ul class="tabs">',
 			li = '';
@@ -100,7 +100,6 @@ var functions = function() {
 		ul += li + '</ul>';
 		$('.visits').append(ul);
 		
-
 		$('.main-content').addClass('loaded');
 		$('.hide-details-btn').addClass('is-visible');
 
@@ -124,7 +123,7 @@ var functions = function() {
 		twttr.ready( function () {
 			twttr.widgets.createTimeline(
 				{ sourceType: "collection", id: tl },
-				document.getElementById(el.prop('id')), 
+				el.get(0), 
 				props.twttrOptions
 			);
 		});
@@ -147,14 +146,8 @@ var functions = function() {
 		for (var i = 0; i < visit.length; i++) {
 			var year = visit[i]['from'].slice(-4);
 
-			if (!trips[year][country]) {
-				var obj = {};
-				obj.name = $('path#' + country).attr('title');
-				obj.count = 1;
-				trips[year][country] = obj;
-			}	
-			else
-				trips[year][country]['count'] = trips[year][country]['count'] + 1;
+			trips[year][country] = trips[year][country] || {name: $('path#' + country).attr('title'), count: 1};
+			trips[year][country]['count'] = trips[year][country]['count'] + 1;
 		}
 	};
 	var orderByYearCountry = function () {
@@ -162,10 +155,7 @@ var functions = function() {
 			var trip = trips[year];
 			var byName = {};
 			$.each(trip, function(country) {
-				var obj = {};
-				obj.code =  country;
-				obj.count = trip[country].count;
-				byName[trip[country]["name"]] = obj;
+				byName[trip[country]["name"]] = {code: country, count: trip[country].count};
 			});
 			trips[year] = byName;
 		});
@@ -182,33 +172,45 @@ var functions = function() {
 		return trips;
 	};
 	var createAsideTrips = function (trips) {
-		var ul = '<ul class="tabs">'
-		var li = '';
-		$.each(trips, function (i, item) {
-			li += '<li>';
-			var checked = i == 2014 ? 'checked' : '';
-			var	radio = '<input type="radio" name="tabs" id="tab' + i + '" ' + checked + '/>',
-				label = '<label for="tab' + i + '">' + i + '</label>';
 
-			var details = '';
+		var ul = createElWithAttributes('ul', {class: 'tabs'});
 
+		$.each( trips, function (i, item) {
+			var li = createElWithAttributes('li');
+			var checked = i == 2014;
+
+			var radio = createElWithAttributes('input', { type: 'radio', name: 'tabs', id: 'tab' + i, checked: checked }),
+				label = createElWithAttributes('label', { for: 'tab' + i}),
+				tabContent = createElWithAttributes('div', { class: 'tab-content', id: 'tab-content' + i})
+				countries = createElWithAttributes('div', { class: 'country-names'});
+
+			label.innerHTML = i;
 			for (var country in item) {
-				details += '<div class="aside-country-name" data-country="'+ item[country].code + '">' + country + '</div>';  
+				var details = createElWithAttributes('div', { class: "aside-country-name", 'data-country': item[country].code});
+				details.innerHTML = country;
+				countries.appendChild(details);
 			}
 
-			var tabContent = '<div class="tab-content" id="tab-content' + i + '"><div class="country-names">';
-			tabContent +=  details;
-			li += radio + label + tabContent + "</div></div>" + "</li>";
+			tabContent.appendChild(countries);
+			li.appendChild(radio);
+			li.appendChild(label);
+			li.appendChild(tabContent);
+			ul.appendChild(li);
 		});
+		document.querySelector('.aside__trips').appendChild(ul);
 
-		ul += li + '</ul>';
-		$('.aside__trips').append(ul);
-		state.asideSelectedYear = $('.aside__trips input[type="radio"]:checked');
-		
 		$('.aside-country-name').on('click', function() {
 			state.asideSelectedYear = $('.aside__trips input[type="radio"]:checked');
 			window.location.hash = $(this).data().country;
 		});
+	};
+	var createElWithAttributes = function (tagName, attributes) {
+		var el = document.createElement(tagName);
+		for (var attr in attributes) {
+			el.setAttribute(attr, attributes[attr]);
+		}
+
+		return el;
 	}
 
 	return {
