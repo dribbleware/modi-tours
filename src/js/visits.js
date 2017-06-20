@@ -303,7 +303,7 @@ var visits = {
     {
         "from": "04/06/2016",
         "to": "04/06/2016",
-        "type": ["Inaugration of Salma Dam"],
+        "type": ["Inauguration of Salma Dam"],
         "city": ["Herat"],
         "tl": "770706221921886208"
     }],
