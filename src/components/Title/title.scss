@@ -1,0 +1,38 @@
+@import 'styles/_variables.scss';
+
+.branding {
+  &-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 18vh;
+    padding-left: 6vw;
+    text-align: center;
+    transition: all 500ms ease-in-out;
+    
+    @media (max-width: $desktop) {
+      padding-bottom: 12vh;
+      padding-left: 4vw;
+    }
+    @media (max-width: $phone) {
+      transition-duration: 0ms;
+      bottom: auto;
+      top: 5vh;
+      width: 100%;
+    }
+  }
+  &__title {
+    padding: 0;
+    margin: 0;
+    font-size: calc(1.8vh + 1.8vw);
+    color: white;
+    @media (max-width: $phone) {
+      font-size: 30px;
+    }
+  }
+}
+
+.noScroll .branding-container {
+  opacity: 0;
+  pointer-events: none;
+}

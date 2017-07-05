@@ -1,0 +1,38 @@
+.tabs {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  padding-left: 1.5%;
+}
+.tab {
+  &-link {
+    margin: 5px;
+    border: 1px solid $accent;
+    z-index: 2;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    display: inline-block;
+    cursor: pointer;
+    &.is-selected {
+      background-color: $accent;
+      color: white;
+    }
+  }
+  &-content {
+    display: none;
+    z-index: 2;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 20px 2%;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    &.is-displayed {
+      display: inherit;
+    }
+  }
+}

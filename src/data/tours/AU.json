@@ -1,0 +1,10 @@
+{
+  "name": "Australia",
+  "visits": [{
+    "from": "14/11/2014",
+    "to": "18/11/2014",
+    "type": ["G20 Summit", "sv"],
+    "city": ["Brisbane", "Canberra", "Melbourne", "Sydney"],
+    "tl": "783900508008439809"
+  }]
+}

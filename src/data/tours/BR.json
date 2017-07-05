@@ -1,0 +1,10 @@
+{
+  "name": "Brazil",
+  "visits": [{
+    "from": "13/07/2014",
+    "to":"16/07/2014",
+    "type": ["BRICS Summit", "sv"],
+    "city": ["Fortaleza"],
+    "tl": "773026841498091520"
+  }]
+}

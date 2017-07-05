@@ -1,0 +1,10 @@
+{
+  "name": "United Kingdom",
+  "visits": [{
+    "from": "12/11/2015",
+    "to": "14/11/2015",
+    "type": ["sv"],
+    "city": ["London", "Chequers"],
+    "tl": "829089851010117632"
+  }]
+}

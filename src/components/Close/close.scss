@@ -1,0 +1,17 @@
+@import 'styles/_variables.scss';
+
+.close {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  svg {
+    height: 50px;
+    fill: rgba(40, 35, 35, 0.8);
+    &:hover {
+      fill: rgba(40, 35, 35, 1);
+    }
+  }
+  @media (max-width: $phone) {
+    display: none;
+  }
+}

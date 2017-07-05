@@ -1,0 +1,17 @@
+{
+  "name": "Afghanistan",
+  "visits": [{
+    "from": "25/12/2015",
+    "to": "25/12/2015",
+    "type": ["sv"],
+    "city": ["Kabul"],
+    "tl": "821966374759202816"
+  },
+  {
+    "from": "04/06/2016",
+    "to": "04/06/2016",
+    "type": ["Inauguration of Salma Dam"],
+    "city": ["Herat"],
+    "tl": "770706221921886208"
+  }]
+}

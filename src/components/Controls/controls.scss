@@ -1,0 +1,42 @@
+@import 'styles/_variables.scss';
+
+.controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+  @media (max-width: $phone) {
+    bottom: 70px;
+  }
+  .zoom-in, .zoom-out, .reset {
+    padding: 5px;
+    margin: 0 3px;
+    background-color: #CCE2E6;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 150ms ease-in-out;
+    path {
+      fill: $accent;
+      transition: all 150ms ease-in-out;
+    }
+    &:hover {
+      background-color: $accent;
+      path {
+        fill : #CCE2E6;
+      }
+    }
+    &:active {
+      opacity: 0.8;
+      path {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.noScroll {
+  .controls {
+    opacity: 0;
+  }
+}

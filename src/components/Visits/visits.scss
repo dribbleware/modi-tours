@@ -1,0 +1,109 @@
+@import 'styles/_variables.scss';
+@import './_tabs.scss';
+@import './_spinner.scss';
+
+.visit {
+  min-height: 100vh;
+  transition: min-height 500ms ease-in;
+  transition-delay: 5s;
+  &-types {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    padding: 5px 0;
+    font-weight: 700;
+    margin-top: 30px;
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+  &-type {
+    border: 1px solid lightgrey;
+    padding: 5px 8px;
+    margin-right: 5px;
+    display: inline-block;
+    color: $accent;
+  }
+  &-icon {
+    background-repeat: no-repeat;
+    min-width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    display: flex;
+  }
+  &-dates, &-cities {
+    font-weight: 700;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+  }
+  &-dates span {
+    padding: 5px 8px;
+    border: 1px solid lightgrey;
+    display: inline-block;
+    margin-right: 5px;
+    color: $accent;
+  }
+  &-city-names {
+    display: flex;
+    flex-flow: row-reverse wrap;
+  }
+  &-city {
+    border: 1px solid lightgrey;
+    padding: 5px 8px;
+    margin-right: 5px;
+    color: $accent;
+    margin-bottom: 5px;
+  }
+  &-tweets {
+    margin-top: 15px;
+    max-height: 0px;
+    opacity: 0;
+    transition: opacity 600ms ease-in-out, 
+                max-height 6000ms cubic-bezier(0, 0, 0, 0.84),
+                margin 600ms cubic-bezier(0, 0, 0, 0.84);
+    &.tweets--rendered {
+      max-height: 10000vh;
+      opacity: 1;
+      margin-top: -50px;
+      @media (max-width: $phone) {
+        margin-top: -25px;
+      }
+    }
+    @media (max-width: $phone) {
+      min-height: 100vh;
+    }
+  }
+  &-spinner {
+    margin: 0 auto;
+    margin-top: 5%;
+    opacity: 1;
+    transition: opacity 100ms ease-out;
+    &--hidden {
+      opacity: 0;
+      ~ .visit-tweets {
+        opacity: 1;
+        margin-top: -24px;
+      }
+    }
+  }
+}
+
+.backdrop {
+  position: absolute;
+  top: 3vw;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  transform: skewY(-5deg);
+  z-index: -1;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.8), #fff);
+  @media (max-width: $tablet) {
+    transform: skewY(-10deg);
+  }
+}
+
+.visit.tweets--rendered {
+  min-height: 20vh;
+}

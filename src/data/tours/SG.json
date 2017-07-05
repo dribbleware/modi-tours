@@ -1,0 +1,17 @@
+{
+  "name": "Singapore",
+  "visits": [{
+    "from": "23/03/2015",
+    "to": "23/03/2015",
+    "type": ["State funeral of Lee Kuan Yew"],
+    "city": ["Singapore"],
+    "tl": "785718004881522688"
+  },
+  {
+    "from": "23/11/2015",
+    "to": "25/11/2015",
+    "type": ["sv"],
+    "city": ["Singapore"],
+    "tl": "821967919374618626"
+  }]
+}

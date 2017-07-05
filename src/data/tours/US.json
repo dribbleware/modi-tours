@@ -1,0 +1,31 @@
+{
+  "name": "United States of America",
+  "visits": [{
+    "from": "26/09/2014",
+    "to": "30/09/2014",
+    "type": ["General debate of the UN General Assembly", "sv"],
+    "city": ["New York", "Washington"],
+    "tl": "828022014732546052"
+  },
+  {
+    "from": "24/09/2015",
+    "to": "30/09/2015",
+    "type": ["UN General Assembly", "Visit to Silicon Valley"],
+    "city": ["New York", "San Francisco"],
+    "tl": "828016484848902145"
+  },
+  {
+    "from": "31/03/2016",
+    "to": "01/04/2016",
+    "type": ["Nuclear Security Summit"],
+    "city": ["Washington"],
+    "tl": "771582429622509568"
+  },
+  {
+    "from": "06/06/2016",
+    "to": "08/06/2016",
+    "type": ["sv"],
+    "city": ["Washington"],
+    "tl": "770713666085916672"
+  }]
+}

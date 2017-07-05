@@ -1,0 +1,74 @@
+@import 'styles/_variables.scss';
+
+.country {
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow-y: scroll;
+    width: 100%;
+    padding-top: 20vh;
+    @media (max-width: $phone) {
+      padding-top: 0;
+    }
+  }
+  &-wrapper {
+    width: 55vw;
+    margin: 0 auto;
+    position: relative;
+    transition: all 250ms ease-out;
+    @media (max-width: $desktop) {
+      width: 75%;
+    }
+    @media (max-width: $phone) {
+      width: 100%;
+    }
+  }
+  &__nav {
+    background-color: #d4e6ea;
+    position: fixed;
+    width: 100%;
+    z-index: 4;
+    display: none;
+    &--icon {
+      border-right: 1px solid #dfeaec;
+      height: 50px;
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        height: 32px;
+        width: 32px;
+        fill: white;
+      }
+      &.is-showing {
+        opacity: 0;
+      }
+    }
+    @media (max-width: $phone) {
+      display: block;
+    }
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 2% 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    @media (max-width: $phone) {
+      padding-top: 50px;
+    }
+  }
+  &__body {
+    padding-bottom: 20%; //WTF?
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  &__flag {
+    height: 32px;
+  }
+}

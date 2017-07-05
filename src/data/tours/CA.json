@@ -1,0 +1,10 @@
+{
+  "name": "Canada",
+  "visits": [{
+    "from": "14/04/2015",
+    "to": "16/04/2015",
+    "type": ["sv"],
+    "city": ["Ottawa", "Toronto", "Vancouver"],
+    "tl": "823775885836910592"
+  }]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "France",
+  "visits": [{
+    "from": "09/04/2015",
+    "to": "12/04/2015",
+    "type": ["sv"],
+    "city": ["Paris", "Toulouse", "Neuve-Chapelle"],
+    "tl": "828036156524736512"
+  }, 
+  {
+    "from": "30/11/2015",
+    "to": "01/12/2015",
+    "type": ["2015 UN Climate Change Conference COP21"],
+    "city": ["Paris"],
+    "tl": "828040991093485568"
+  }]
+}

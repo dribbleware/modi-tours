@@ -1,0 +1,10 @@
+{
+  "name": "South Africa",
+  "visits": [{
+    "from": "08/07/2016",
+    "to": "09/07/2016",
+    "type": ["sv"],
+    "city": ["Pretoria", "Durban", "Johannesburg", "Pietermaritzburg"],
+    "tl": "769641659340587008"
+  }]
+}
