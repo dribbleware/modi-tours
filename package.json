@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Indian PM Narendra Modi's international tours",
   "author": "Vivek Patel, @vivensio",
+  "homepage": "https://dribbleware.github.io/modi-tours",
   "dependencies": {
     "hammerjs": "^2.0.8",
     "mobx": "^3.1.16",
@@ -14,6 +15,7 @@
     "react-twitter-widgets": "^1.4.0"
   },
   "devDependencies": {
+    "gh-pages": "^1.0.0",
     "node-sass-chokidar": "^0.0.3",
     "npm-run-all": "^4.0.2",
     "react-scripts": "1.0.7"
@@ -25,6 +27,8 @@
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
