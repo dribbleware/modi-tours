@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Indian PM Narendra Modi's international tours",
   "author": "Vivek Patel, @vivensio",
-  "homepage": "https://dribbleware.github.io/modi-tours",
   "dependencies": {
     "hammerjs": "^2.0.8",
     "mobx": "^3.1.16",
