@@ -13,5 +13,12 @@
     "type": ["2015 UN Climate Change Conference COP21"],
     "city": ["Paris"],
     "tl": "828040991093485568"
+  },
+  {
+    "from": "02/06/2017",
+    "to": "03/06/2017",
+    "type": ["sv"],
+    "city": ["Paris"],
+    "tl": "887919420345069568"
   }]
 }
