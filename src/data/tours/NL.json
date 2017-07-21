@@ -1,0 +1,10 @@
+{
+  "name": "Netherlands",
+  "visits": [{
+    "from": "27/06/2017",
+    "to": "27/06/2017",
+    "type": ["sv"],
+    "city": ["Amsterdam", "The Hague"],
+    "tl": "888331359030312960"
+  }]
+}
