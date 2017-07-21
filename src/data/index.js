@@ -45,6 +45,7 @@ import LA from './tours/LA.json';
 import TH from './tours/TH.json';
 import ES from './tours/ES.json';
 import PT from './tours/PT.json';
+import NL from './tours/NL.json';
 
 export {
   BT,
@@ -93,5 +94,6 @@ export {
   LA,
   TH,
   ES,
-  PT
+  PT,
+  NL
 }
