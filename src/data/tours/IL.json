@@ -1,0 +1,10 @@
+{
+  "name": "Israel",
+  "visits": [{
+    "from": "04/07/2017",
+    "to": "06/07/2017", 
+    "type": ["sv"],
+    "city": ["Jerusalem", "Haifa", "Tel Aviv"],
+    "tl": "888841903252393985"
+  }]
+}
